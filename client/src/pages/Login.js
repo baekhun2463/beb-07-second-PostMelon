@@ -22,44 +22,63 @@ const Login = () => {
   }
 
   return (
-    <div className="login">
-      <input
-        placeholder="사용자 이름 또는 이메일"
-        id="id"
-        className="h-10 rounded-md bg-black px-6 font-semibold text-white"
-        onChange={(e) => {
-          setId(e.target.value);
-        }}
-        onKeyUp={changeButton}
-      />
-      <input
-        type="password"
-        placeholder="비밀번호"
-        id="password"
-        className="h-10 rounded-md bg-black px-6 font-semibold text-white"
-        onChange={(e) => {
-          setPw(e.target.value);
-        }}
-        onKeyUp={changeButton}
-      />
-      <button
-        type="button"
-        className="h-10 rounded-md bg-black px-6 font-semibold text-white"
-        disabled={button}
-        onClick={(e) => {
-          if (realId === id) {
-            if (realPw === pw) {
-              e.stopPropagation();
-              goToHome();
-            }
-          } else {
-            alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
-          }
-        }}
-      >
-        Login
-      </button>
-      <Link to="/signup">회원가입</Link>
+    <div className="container px-5 py-24 mx-auto">
+      <div className="lg:w-1/2 md:w-2/3 mx-auto">
+        <div className="flex flex-wrap -m-2">
+          <div className="p-2 w-1/2">
+            <div className="relative">
+              <input
+              placeholder="사용자 이름 또는 이메일"
+              id="id"
+              className="h-12 rounded-md relative bg-black px-6 font-semibold text-white"
+              onChange={(e) => {
+              setId(e.target.value);
+              }}
+              onKeyUp={changeButton}
+              />
+
+            </div>
+          </div>
+              <div className="p-2 w-full">
+                <div className="relative">
+                  <input
+                    type="password"
+                    placeholder="비밀번호"
+                    id="password"
+                    className="h-12 rounded-md bg-black px-6 font-semibold text-white"
+                    onChange={(e) => {
+                    setPw(e.target.value);
+                    }}
+                    onKeyUp={changeButton}
+                    />
+                </div>
+              </div>
+              <div className="p-2 w-full">
+                <div className="relative">
+                  <button
+                    type="button"
+                    className="ml-16 mx-auto text-white bg-black border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                    disabled={button}
+                    onClick={(e) => {
+                      if (realId === id) {
+                      if (realPw === pw) {
+                        e.stopPropagation();
+                        goToHome();
+                      }
+                      } else {
+                        alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
+                      }
+                      }}
+                      >
+                      Login
+                  </button>
+                </div>
+              </div>
+              <div className="p-2 w-1/2 ml-24">
+              <Link to="/signup">회원가입</Link>
+              </div>
+        </div>
+      </div>
     </div>
   );
 };
